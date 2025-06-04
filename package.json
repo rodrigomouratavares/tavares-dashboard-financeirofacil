@@ -1,5 +1,5 @@
 {
-  "name": "meu-projeto",
+  "name": "tavares-dashboard-financeirofacil",
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
@@ -8,14 +8,16 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^7.6.1"
   },
   "devDependencies": {
-    "vite": "^5.0.0",
+    "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react": "^4.0.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.4.0",
-    "prettier": "^3.5.3"
+    "prettier": "^3.5.3",
+    "vite": "^5.0.0"
   }
 }
