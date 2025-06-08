@@ -1,0 +1,5 @@
+export { default as Home } from './home'
+export { default as Leads } from './Leads'
+export { default as Login } from './Login'
+export { default as Registration } from './Registration'
+export { default as Profile } from './Profile'
