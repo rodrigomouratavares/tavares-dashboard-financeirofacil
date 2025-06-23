@@ -5,7 +5,6 @@ import Grid from '@mui/material/Grid'
 
 const LoginArea = styled.div`
   background: #666;
-  color: white;
 `
 
 const LoginImage = styled.div`
@@ -17,38 +16,35 @@ const LoginImage = styled.div`
 
 function Login() {
   return (
-    <Box sx={{ height: '100vh' }}>
-      <Grid container sx={{ height: '100%' }}>
-        {/* Lado esquerdo - área de login */}
-        <Grid
-          item
-          xs={12}
-          sm={6}
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Container maxWidth="sm">
-            <LoginArea>LOGIN</LoginArea>
-          </Container>
-        </Grid>
+    <>
+      <Box>
+        <Grid container>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            sx={{ alignItems: 'center', display: 'flex', height: '100vh' }}
+          >
+            <Container maxWidth="sm">
+              <LoginArea>LOGIN</LoginArea>
+            </Container>
+          </Grid>
 
-        {/* Lado direito - imagem */}
-        <Grid
-          item
-          xs={false}
-          sm={6}
-          sx={{
-            display: { xs: 'none', sm: 'block' },
-            height: '100vh',
-          }}
-        >
-          <LoginImage />
+          {/* Lado direito - imagem */}
+          <Grid
+            item
+            sm={6}
+            sx={{
+              display: { xs: 'none', sm: 'block' },
+            }}
+          >
+            <Container maxWidth="sm">
+              <LoginImage />
+            </Container>
+          </Grid>
         </Grid>
-      </Grid>
-    </Box>
+      </Box>
+    </>
   )
 }
 
