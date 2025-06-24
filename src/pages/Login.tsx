@@ -1,12 +1,6 @@
 import styled from 'styled-components'
-<<<<<<< HEAD
-import Box from '@mui/material/Box'
-import Container from '@mui/material/Container'
-import Grid from '@mui/material/Grid'
-
-=======
 import { Box, Container, Grid } from '@mui/material'
->>>>>>> 0b18129 (Login e image com mui)
+
 const LoginArea = styled.div`
   background: #666;
 `
@@ -23,6 +17,7 @@ function Login() {
     <>
       <Box>
         <Grid container>
+          {/* Lado esquerdo - login */}
           <Grid
             item
             xs={12}
@@ -33,23 +28,15 @@ function Login() {
               <LoginArea>LOGIN</LoginArea>
             </Container>
           </Grid>
-<<<<<<< HEAD
 
           {/* Lado direito - imagem */}
           <Grid
             item
+            xs={false}
             sm={6}
-            sx={{
-              display: { xs: 'none', sm: 'block' },
-            }}
+            sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            <Container maxWidth="sm">
-              <LoginImage />
-            </Container>
-=======
-          <Grid item sm={6} sx={{ display: { xs: 'none', sm: 'block' } }}>
             <LoginImage />
->>>>>>> 0b18129 (Login e image com mui)
           </Grid>
         </Grid>
       </Box>
