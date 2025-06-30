@@ -13,7 +13,6 @@ export const GlobalStyle = createGlobalStyle<{ theme?: DefaultTheme }>`
         margin: 0;
         padding: 0;
     }
-     
 
 
  
