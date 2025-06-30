@@ -1,5 +1,11 @@
 import { Box, Container, Grid } from '@mui/material'
-import { BannerImage, FormComponent, StyledH1, StyledP } from '@/components'
+import {
+  BannerImage,
+  FormComponent,
+  StyledH1,
+  StyledP,
+  Logo,
+} from '@/components'
 import { pxToRem } from '@/utils'
 
 function Login() {
@@ -15,7 +21,10 @@ function Login() {
             sx={{ alignItems: 'center', display: 'flex', height: '100vh' }}
           >
             <Container maxWidth="sm">
-              <Box sx={{ marginBottom: pxToRem(24) }}> Logo</Box>
+              <Box sx={{ marginBottom: pxToRem(24) }}>
+                {' '}
+                <Logo height={25} width={100} />
+              </Box>
               <Box sx={{ marginBottom: pxToRem(24) }}>
                 <StyledH1>Bem vindo</StyledH1>
                 <StyledP>Digite sua senha e email para logar</StyledP>
