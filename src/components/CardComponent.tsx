@@ -4,10 +4,12 @@ import { pxToRem } from '@/utils'
 export const CardComponent = styled.div`
   background-image: ${(props) => props.theme.card.background};
   border: ${pxToRem(1)} solid ${(props) => props.theme.card.border};
-  boder-radius: ${pxToRem(8)};
-  box-sizing: border-box.;
+  border-radius: ${pxToRem(8)};
+  box-sizing: border-box;
   padding: ${pxToRem(24)};
   width: 100%;
+  display: flex;
+  align-items: center;
 
   &.alert {
     background-color: ${(props) => props.theme.card.alert};
