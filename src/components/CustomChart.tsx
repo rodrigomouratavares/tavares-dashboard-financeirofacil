@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { useTheme } from 'styled-components'
 import {
   Chart as ChartJS,
@@ -10,8 +11,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js'
-import { Line } from 'react-chartjs-2'
-import { Bar } from 'react-chartjs-2'
+import { Line, Bar } from 'react-chartjs-2'
 import { CustomChartProps } from '@/types'
 
 ChartJS.register(
@@ -25,52 +25,46 @@ ChartJS.register(
   Legend
 )
 
-function CustomChart(props: CustomChartProps) {
-  const { data, labels, type } = props
+function CustomChart({ data, labels, type }: CustomChartProps) {
   const theme = useTheme()
-  const options = {
-    responsive: true,
-    scaleShowVerticalLines: false,
-    scales: {
-      x: {
-        border: {
-          display: false,
+
+  const options = useMemo(
+    () => ({
+      responsive: true,
+      scaleShowVerticalLines: false,
+      scales: {
+        x: {
+          border: { display: false },
+          grid: { display: false },
+          ticks: { color: theme.typographies.subtitle },
         },
-        grid: {
-          display: false,
-        },
-        ticks: {
-          color: theme.typographies.subtitle,
-        },
-      },
-      y: {
-        border: {
-          display: false,
-        },
-        grid: {
-          color: theme.appDefaultStroke,
-        },
-        ticks: {
-          color: theme.typographies.subtitle,
+        y: {
+          border: { display: false },
+          grid: { color: theme.appDefaultStroke },
+          ticks: { color: theme.typographies.subtitle },
         },
       },
-    },
-    plugins: {
-      legend: {
-        display: false,
+      plugins: {
+        legend: { display: false },
       },
-    },
-  }
-  const chartData = {
-    labels,
-    datasets: [
-      {
-        data: data,
-        borderColor: 'rgb(12, 112, 242)',
-        backgroundColor: 'rgba(12, 112, 242, 1)',
-      },
-    ],
-  }
+    }),
+    [theme]
+  )
+
+  const chartData = useMemo(
+    () => ({
+      labels,
+      datasets: [
+        {
+          data,
+          borderColor: 'rgb(12, 112, 242)',
+          backgroundColor: 'rgba(12, 112, 242, 1)',
+        },
+      ],
+    }),
+    [labels, data]
+  )
+
   return type === 'bar' ? (
     <Bar options={options} data={chartData} />
   ) : (

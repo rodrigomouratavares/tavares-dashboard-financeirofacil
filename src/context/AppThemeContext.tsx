@@ -11,16 +11,16 @@ export const AppThemeProvider = ({ children }: { children: ReactNode }) => {
   const savedTheme = localStorage.getItem('theme')
   const [appTheme, setAppTheme] = useState(savedTheme ?? 'light')
 
-  const toogleTheme = () => {
+  const toggleTheme = () => {
     setAppTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'))
   }
 
   useEffect(() => {
     localStorage.setItem('theme', appTheme)
-  })
+  }, [appTheme])
 
   return (
-    <AppThemeContext.Provider value={{ appTheme, toogleTheme }}>
+    <AppThemeContext.Provider value={{ appTheme, toggleTheme }}>
       <ThemeProvider theme={appTheme === 'light' ? lightTheme : darkTheme}>
         {children}
       </ThemeProvider>
