@@ -8,8 +8,6 @@ export const CardComponent = styled.div`
   box-sizing: border-box;
   padding: ${pxToRem(24)};
   width: 100%;
-  display: flex;
-  align-items: center;
 
   &.alert {
     background-color: ${(props) => props.theme.card.alert};
