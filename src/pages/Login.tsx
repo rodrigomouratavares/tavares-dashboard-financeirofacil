@@ -2,7 +2,7 @@ import { ChangeEvent, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { jwtDecode } from 'jwt-decode'
 import Cookies from 'js-cookie'
-//components
+// components
 import { Box, Container, Grid } from '@mui/material'
 import {
   BannerImage,
@@ -12,12 +12,13 @@ import {
   Logo,
 } from '@/components'
 
-//HOOKS
+// HOOKS
 import { useFormValidation, usePost } from '@/hooks'
-//UTILS
+
+// UTILS
 import { jwtExpirationDateConverter, pxToRem } from '@/utils'
 
-//Types
+// Types
 import { DecodedJWT, MessageProps, LoginData, LoginPostData } from '@/types'
 
 function Login() {
@@ -34,7 +35,7 @@ function Login() {
   const { formValues, formValid, handleChange } = useFormValidation(inputs)
 
   const handleMessage = (): MessageProps => {
-    if (!error) return { msg: '', type: 'sucess' }
+    if (!error) return { msg: '', type: 'success' }
     switch (error) {
       case 401:
         return {
@@ -43,7 +44,7 @@ function Login() {
         }
       default:
         return {
-          msg: 'Não foi possível realizar a operação. Entre em contato com nosso suporte',
+          msg: 'Não foi possível realizar a operação. Entre em contato com nosso suporte.',
           type: 'error',
         }
     }
@@ -69,60 +70,57 @@ function Login() {
   }, [data, navigate])
 
   return (
-    <>
-      <Box>
-        <Grid container>
-          {/* Lado esquerdo - login */}
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            sx={{ alignItems: 'center', display: 'flex', height: '100vh' }}
-          >
-            <Container maxWidth="sm">
-              <Box sx={{ marginBottom: pxToRem(24) }}>
-                {' '}
-                <Logo height={25} width={100} />
-              </Box>
-              <Box sx={{ marginBottom: pxToRem(24) }}>
-                <StyledH1>Bem vindo</StyledH1>
-                <StyledP>Digite sua senha e email para logar</StyledP>
-              </Box>
+    <Box>
+      <Grid container>
+        {/* Lado esquerdo - login */}
+        <Grid
+          item
+          xs={12}
+          sm={6}
+          sx={{ alignItems: 'center', display: 'flex', height: '100vh' }}
+        >
+          <Container maxWidth="sm">
+            <Box sx={{ marginBottom: pxToRem(24) }}>
+              <Logo height={25} width={100} />
+            </Box>
+            <Box sx={{ marginBottom: pxToRem(24) }}>
+              <StyledH1>Bem vindo</StyledH1>
+              <StyledP>Digite seu email e senha para logar</StyledP>
+            </Box>
 
-              <FormComponent
-                inputs={inputs.map((input, index) => ({
-                  type: input.type,
-                  placeholder: input.type,
-                  value: formValues[index] || '',
-                  onChange: (e: ChangeEvent<HTMLInputElement>) =>
-                    handleChange(index, (e.target as HTMLInputElement).value),
-                }))}
-                buttons={[
-                  {
-                    className: 'primary',
-                    disabled: !formValid || loading,
-                    type: 'submit',
-                    onClick: handleSubmit,
-                    children: loading ? 'Aguarde...' : 'Login',
-                  },
-                ]}
-                message={handleMessage()}
-              />
-            </Container>
-          </Grid>
-
-          {/* Lado direito - imagem */}
-          <Grid
-            item
-            xs={false}
-            sm={6}
-            sx={{ display: { xs: 'none', sm: 'block' } }}
-          >
-            <BannerImage />
-          </Grid>
+            <FormComponent
+              inputs={inputs.map((input, index) => ({
+                type: input.type,
+                placeholder: input.placeholder, // <-- corrigido
+                value: formValues[index] || '',
+                onChange: (e: ChangeEvent<HTMLInputElement>) =>
+                  handleChange(index, (e.target as HTMLInputElement).value),
+              }))}
+              buttons={[
+                {
+                  className: 'primary',
+                  disabled: !formValid || loading,
+                  type: 'submit',
+                  onClick: handleSubmit,
+                  children: loading ? 'Aguarde...' : 'Login',
+                },
+              ]}
+              message={handleMessage()}
+            />
+          </Container>
         </Grid>
-      </Box>
-    </>
+
+        {/* Lado direito - imagem */}
+        <Grid
+          item
+          xs={false}
+          sm={6}
+          sx={{ display: { xs: 'none', sm: 'block' } }}
+        >
+          <BannerImage />
+        </Grid>
+      </Grid>
+    </Box>
   )
 }
 
