@@ -42,11 +42,12 @@ function Profile() {
       })
     }, 3000)
   }
+
   const {
     data: profileData,
     loading: profileLoading,
     error: profileError,
-  } = useGet<ProfileData[]>('profile')
+  } = useGet<ProfileData>('profile') // 🔧 corrigido: ProfileData e não ProfileData[]
 
   const {
     data: profileUpdateData,
@@ -81,6 +82,7 @@ function Profile() {
       phone: String(formValues[2]),
     })
   }
+
   const handleDelete = async () => {
     if (
       confirm(
