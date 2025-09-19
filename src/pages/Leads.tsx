@@ -64,7 +64,7 @@ function Leads() {
         getLeads() //reinicia a lista
       } catch (e) {
         alert(
-          'Não foi possível realizar a operação. Entre em contato com nosso suporte.'
+          'Não foi possível realizar a operação. Entre em contato com nosso suporte!'
         )
       }
     }
