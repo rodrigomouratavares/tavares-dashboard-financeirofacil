@@ -8,6 +8,21 @@ export const TablleWrapper = styled.header`
   table {
     width: 100%;
     border-collapse: collapse;
+  .ellipsis {
+  display: block;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;
+  }
+
+  .ellipsis-sm {
+    width: ${pxToRem(130)};
+  }
+
+   .ellipsis-xs {
+    width: ${pxToRem(150)};
+  }
+
 
     th,
     td {

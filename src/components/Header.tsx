@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { Logo } from '@/components'
 import { Link } from 'react-router-dom'
+import { Logo } from '@/components'
 import { Avatar, Box, Container } from '@mui/material'
 import { pxToRem } from '@/utils'
 
